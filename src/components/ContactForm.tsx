@@ -3,35 +3,72 @@
 import { useState } from "react";
 import { business, productCategories } from "@/lib/content";
 
-type Status = "idle" | "sending" | "sent";
+type Status = "idle" | "sending" | "sent" | "error";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
-    setStatus("sending");
-
-    // No backend is wired up yet — compose a mailto so the enquiry is never
-    // lost. Swap this for an API route / form service when one is available.
     const data = new FormData(form);
-    const name = String(data.get("name") || "");
-    const email = String(data.get("email") || "");
-    const phone = String(data.get("phone") || "");
-    const product = String(data.get("product") || "");
-    const message = String(data.get("message") || "");
+    const payload = {
+      name: String(data.get("name") || ""),
+      email: String(data.get("email") || ""),
+      phone: String(data.get("phone") || ""),
+      product: String(data.get("product") || ""),
+      message: String(data.get("message") || ""),
+      company: String(data.get("company") || ""), // honeypot
+    };
 
-    const subject = encodeURIComponent(`Website enquiry — ${product || "General"}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nProduct of interest: ${product}\n\n${message}`,
-    );
-
-    setTimeout(() => {
-      window.location.href = `mailto:${business.email}?subject=${subject}&body=${body}`;
+    setStatus("sending");
+    setErrorMsg("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        const j = await res.json().catch(() => ({}));
+        throw new Error(j.error || "Something went wrong. Please try again.");
+      }
       setStatus("sent");
       form.reset();
-    }, 400);
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
+    }
+  }
+
+  if (status === "sent") {
+    return (
+      <div className="rounded-2xl border border-brass/30 bg-cream p-8 text-center">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-brass/15 text-brass-dark">
+          <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none">
+            <path
+              d="M5 13l4 4L19 7"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+        <h3 className="mt-4 font-serif text-2xl text-espresso">
+          Thank you — enquiry sent
+        </h3>
+        <p className="mx-auto mt-2 max-w-sm text-sm text-bark">
+          We&rsquo;ve received your message and will get back to you, usually
+          within one business day. Prefer to talk now? Call{" "}
+          <a href={business.phoneHref} className="font-medium text-brass-dark">
+            {business.phone}
+          </a>
+          .
+        </p>
+      </div>
+    );
   }
 
   const field =
@@ -39,6 +76,16 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      {/* Honeypot — hidden from people, tempting to bots */}
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+      />
+
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="mb-1.5 block text-sm font-medium text-bark">
@@ -101,16 +148,21 @@ export function ContactForm() {
         />
       </div>
 
+      {status === "error" && (
+        <p className="rounded-xl border border-clay/30 bg-clay/10 px-4 py-3 text-sm text-clay">
+          {errorMsg}{" "}
+          <a href={business.phoneHref} className="font-semibold underline">
+            Call {business.phone}
+          </a>
+        </p>
+      )}
+
       <button
         type="submit"
         disabled={status === "sending"}
         className="w-full rounded-full bg-espresso px-6 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-brass-dark disabled:opacity-60"
       >
-        {status === "sending"
-          ? "Opening your email…"
-          : status === "sent"
-            ? "Thank you — check your email app"
-            : "Send enquiry"}
+        {status === "sending" ? "Sending…" : "Send enquiry"}
       </button>
 
       <p className="text-center text-xs text-stone">

@@ -132,8 +132,12 @@ Don't replace the logo with a redrawn mark — the client asked to keep this one
 
 ## Known gaps / before launch
 
-- **Contact form has no backend** — `ContactForm` is a `mailto:` fallback. Wire a
-  real handler (e.g. an API route + Resend) before launch.
+- **Contact form** sends via **Gmail SMTP** (`nodemailer`) through the
+  `app/api/contact/route.ts` handler (`runtime = "nodejs"`). Set `GMAIL_USER`,
+  `GMAIL_APP_PASSWORD` (a Google App Password, not the account password) and
+  optional `CONTACT_TO` in `.env.local` (and in the host's env at deploy). See
+  `.env.example`. Without the key the route returns a graceful 503. Has a
+  honeypot (`company` field) + email validation.
 - After go-live, **submit the sitemap in Google Search Console** so the 308s get
   recrawled quickly.
 - Shop items use a representative category lifestyle photo (no per-product shots);
