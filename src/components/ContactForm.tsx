@@ -44,8 +44,8 @@ export function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="rounded-2xl border border-brass/30 bg-cream p-8 text-center">
-        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-brass/15 text-brass-dark">
+      <div className="rounded-2xl border border-tomato/30 bg-cocoa p-8 text-center">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-tomato/15 text-tomato">
           <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none">
             <path
               d="M5 13l4 4L19 7"
@@ -56,13 +56,13 @@ export function ContactForm() {
             />
           </svg>
         </div>
-        <h3 className="mt-4 font-serif text-2xl text-espresso">
+        <h3 className="mt-4 font-serif text-2xl text-cream">
           Thank you — enquiry sent
         </h3>
-        <p className="mx-auto mt-2 max-w-sm text-sm text-bark">
+        <p className="mx-auto mt-2 max-w-sm text-sm text-oat">
           We&rsquo;ve received your message and will get back to you, usually
           within one business day. Prefer to talk now? Call{" "}
-          <a href={business.phoneHref} className="font-medium text-brass-dark">
+          <a href={business.phoneHref} className="font-medium text-tomato">
             {business.phone}
           </a>
           .
@@ -72,7 +72,7 @@ export function ContactForm() {
   }
 
   const field =
-    "w-full rounded-xl border border-bark/15 bg-cream px-4 py-3 text-sm text-espresso placeholder:text-stone/70 outline-none transition focus:border-brass focus:ring-2 focus:ring-brass/20";
+    "w-full rounded-xl border border-oat/15 bg-cocoa px-4 py-3 text-sm text-cream placeholder:text-taupe/70 outline-none transition focus:border-tomato focus:ring-2 focus:ring-tomato/20";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -88,13 +88,13 @@ export function ContactForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-bark">
+          <label className="mb-1.5 block text-sm font-medium text-oat">
             Name
           </label>
           <input name="name" required className={field} placeholder="Your name" />
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-bark">
+          <label className="mb-1.5 block text-sm font-medium text-oat">
             Phone
           </label>
           <input
@@ -107,7 +107,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label className="mb-1.5 block text-sm font-medium text-bark">
+        <label className="mb-1.5 block text-sm font-medium text-oat">
           Email
         </label>
         <input
@@ -120,7 +120,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label className="mb-1.5 block text-sm font-medium text-bark">
+        <label className="mb-1.5 block text-sm font-medium text-oat">
           Product of interest
         </label>
         <select name="product" className={field} defaultValue="">
@@ -137,7 +137,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label className="mb-1.5 block text-sm font-medium text-bark">
+        <label className="mb-1.5 block text-sm font-medium text-oat">
           Message
         </label>
         <textarea
@@ -149,7 +149,7 @@ export function ContactForm() {
       </div>
 
       {status === "error" && (
-        <p className="rounded-xl border border-clay/30 bg-clay/10 px-4 py-3 text-sm text-clay">
+        <p className="rounded-xl border border-blush/30 bg-blush/10 px-4 py-3 text-sm text-blush">
           {errorMsg}{" "}
           <a href={business.phoneHref} className="font-semibold underline">
             Call {business.phone}
@@ -160,14 +160,14 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full rounded-full bg-espresso px-6 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-brass-dark disabled:opacity-60"
+        className="w-full rounded-full bg-tomato px-6 py-3.5 text-sm font-semibold text-cocoa-deep transition-colors hover:bg-blush disabled:opacity-60"
       >
         {status === "sending" ? "Sending…" : "Send enquiry"}
       </button>
 
-      <p className="text-center text-xs text-stone">
+      <p className="text-center text-xs text-taupe">
         Prefer to talk? Call us on{" "}
-        <a href={business.phoneHref} className="font-medium text-brass-dark">
+        <a href={business.phoneHref} className="font-medium text-tomato">
           {business.phone}
         </a>
       </p>

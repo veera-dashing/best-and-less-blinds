@@ -64,37 +64,37 @@ export default function PrivacyPolicyPage() {
           <div className="space-y-10">
             {sections.map((s) => (
               <div key={s.h}>
-                <h2 className="font-serif text-2xl text-espresso">{s.h}</h2>
+                <h2 className="font-serif text-2xl text-cream">{s.h}</h2>
                 {s.p.map((para, i) => (
-                  <p key={i} className="mt-3 leading-relaxed text-bark">
+                  <p key={i} className="mt-3 leading-relaxed text-oat">
                     {para}
                   </p>
                 ))}
               </div>
             ))}
 
-            <div className="rounded-3xl border border-bark/10 bg-linen p-7">
-              <p className="text-sm text-stone">Contact</p>
-              <p className="mt-2 text-espresso">{business.name}</p>
-              <p className="text-bark">{business.address}</p>
-              <p className="mt-1 text-bark">
+            <div className="rounded-3xl border border-oat/10 bg-cocoa-light p-7">
+              <p className="text-sm text-taupe">Contact</p>
+              <p className="mt-2 text-cream">{business.name}</p>
+              <p className="text-oat">{business.address}</p>
+              <p className="mt-1 text-oat">
                 <a
                   href={business.phoneHref}
-                  className="font-medium text-brass-dark"
+                  className="font-medium text-tomato"
                 >
                   {business.phone}
                 </a>
                 {" · "}
                 <a
                   href={`mailto:${business.email}`}
-                  className="font-medium text-brass-dark"
+                  className="font-medium text-tomato"
                 >
                   {business.email}
                 </a>
               </p>
             </div>
 
-            <p className="text-sm text-stone">
+            <p className="text-sm text-taupe">
               We may update this policy from time to time. Any changes will be
               posted on this page.
             </p>

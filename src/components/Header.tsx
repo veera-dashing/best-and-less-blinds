@@ -8,9 +8,10 @@ import { Logo } from "./Logo";
 
 export function Header() {
   const pathname = usePathname();
-  // Only the home page has a light hero behind the header; every other page
-  // opens with the dark PageHeader banner, so the header must stay solid there
-  // or its dark logo/nav text disappears against the dark background.
+  // Only the home page has a cocoa hero behind the header (same surface as the
+  // header itself); every other page opens with the cream PageHeader panel, so
+  // the header must stay solid there or its light nav text disappears against
+  // the light panel.
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -39,13 +40,19 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled || mobileOpen || !isHome
-          ? "bg-cream/95 backdrop-blur-md shadow-[0_1px_0_rgba(74,63,55,0.08),0_8px_30px_rgba(43,36,32,0.06)]"
+          ? "bg-cocoa/95 backdrop-blur-md shadow-[0_1px_0_rgba(246,237,226,0.08),0_8px_30px_rgba(0,0,0,0.35)]"
           : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
-        <Link href="/" className="shrink-0" aria-label={business.name}>
-          <Logo />
+        {/* The logo artwork sits on a white field, so give it a deliberate
+            light chip against the cocoa header (mirrors the footer treatment). */}
+        <Link
+          href="/"
+          className="shrink-0 rounded-xl bg-white px-2 py-1 shadow-sm"
+          aria-label={business.name}
+        >
+          <Logo className="!h-8 sm:!h-9" />
         </Link>
 
         {/* Desktop nav */}
@@ -67,7 +74,7 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={`flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                      active ? "text-brass-dark" : "text-bark hover:text-espresso"
+                      active ? "text-tomato" : "text-oat hover:text-cream"
                     }`}
                   >
                     {item.label}
@@ -94,17 +101,17 @@ export function Header() {
                         : "invisible opacity-0 -translate-y-1"
                     }`}
                   >
-                    <div className="grid grid-cols-2 gap-1 rounded-3xl border border-bark/10 bg-linen p-3 shadow-[0_24px_60px_rgba(43,36,32,0.16)]">
+                    <div className="grid grid-cols-2 gap-1 rounded-3xl border border-oat/10 bg-cocoa-light p-3 shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
                       {productCategories.map((cat) => (
                         <Link
                           key={cat.slug}
                           href={`/our-services#${cat.slug}`}
-                          className="group rounded-2xl p-4 transition-colors hover:bg-sand"
+                          className="group rounded-2xl p-4 transition-colors hover:bg-cocoa-deep"
                         >
-                          <span className="block font-serif text-lg text-espresso group-hover:text-brass-dark">
+                          <span className="block font-serif text-lg text-cream group-hover:text-tomato">
                             {cat.title}
                           </span>
-                          <span className="mt-0.5 block text-xs text-stone">
+                          <span className="mt-0.5 block text-xs text-taupe">
                             {cat.items
                               .slice(0, 3)
                               .map((i) => i.name)
@@ -123,12 +130,12 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={`flex items-center rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                  active ? "text-brass-dark" : "text-bark hover:text-espresso"
+                  active ? "text-tomato" : "text-oat hover:text-cream"
                 }`}
               >
                 {item.label}
                 {item.label === "Curtains" && (
-                  <span className="ml-1.5 rounded-full bg-brass/15 px-1.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wide text-brass-dark">
+                  <span className="ml-1.5 rounded-full bg-tomato/15 px-1.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wide text-tomato">
                     Trending
                   </span>
                 )}
@@ -140,13 +147,13 @@ export function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           <a
             href={business.phoneHref}
-            className="text-sm font-medium text-bark transition-colors hover:text-brass-dark"
+            className="text-sm font-medium text-oat transition-colors hover:text-tomato"
           >
             {business.phone}
           </a>
           <Link
             href="/contacts"
-            className="rounded-full bg-espresso px-5 py-2.5 text-sm font-semibold text-cream transition-all hover:bg-brass-dark hover:shadow-lg"
+            className="rounded-full bg-tomato px-5 py-2.5 text-sm font-semibold text-cocoa-deep transition-all hover:bg-blush hover:shadow-lg"
           >
             Free Quote
           </Link>
@@ -155,7 +162,7 @@ export function Header() {
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-full text-espresso lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-full text-cream lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
         >
@@ -181,7 +188,7 @@ export function Header() {
 
       {/* Mobile drawer */}
       <div
-        className={`overflow-hidden border-t border-bark/10 bg-cream transition-[max-height] duration-300 lg:hidden ${
+        className={`overflow-hidden border-t border-oat/10 bg-cocoa transition-[max-height] duration-300 lg:hidden ${
           mobileOpen ? "max-h-[80vh]" : "max-h-0"
         }`}
       >
@@ -190,23 +197,23 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="flex items-center rounded-xl px-4 py-3 text-base font-medium text-bark transition-colors hover:bg-sand"
+              className="flex items-center rounded-xl px-4 py-3 text-base font-medium text-oat transition-colors hover:bg-cocoa-deep"
             >
               {item.label}
               {item.label === "Curtains" && (
-                <span className="ml-2 rounded-full bg-brass/15 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-brass-dark">
+                <span className="ml-2 rounded-full bg-tomato/15 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-tomato">
                   Trending
                 </span>
               )}
             </Link>
           ))}
-          <div className="mt-3 flex flex-col gap-2 border-t border-bark/10 pt-4">
-            <a href={business.phoneHref} className="px-4 text-sm text-stone">
+          <div className="mt-3 flex flex-col gap-2 border-t border-oat/10 pt-4">
+            <a href={business.phoneHref} className="px-4 text-sm text-taupe">
               Call {business.phone}
             </a>
             <Link
               href="/contacts"
-              className="rounded-full bg-espresso px-5 py-3 text-center text-sm font-semibold text-cream"
+              className="rounded-full bg-tomato px-5 py-3 text-center text-sm font-semibold text-cocoa-deep"
             >
               Get a Free Quote
             </Link>

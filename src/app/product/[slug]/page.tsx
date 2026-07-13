@@ -61,7 +61,7 @@ export default async function ProductPage({
 
       <section className="py-16 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 sm:px-8 lg:grid-cols-2 lg:items-start">
-          <div className="group relative aspect-square overflow-hidden rounded-[2rem] border border-bark/10 bg-sand shadow-[0_30px_60px_-30px_rgba(43,36,32,0.4)]">
+          <div className="group relative aspect-square overflow-hidden rounded-[2rem] border border-oat/10 bg-cocoa-deep shadow-[0_30px_60px_-30px_rgba(0,0,0,0.4)]">
             <ProductImage
               src={shopPhoto(product.category)}
               alt={product.name}
@@ -72,32 +72,32 @@ export default async function ProductPage({
           </div>
 
           <div>
-            <p className="eyebrow text-brass-dark">{product.category}</p>
-            <h1 className="mt-3 font-serif text-3xl text-espresso sm:text-4xl">
+            <p className="eyebrow text-tomato">{product.category}</p>
+            <h1 className="mt-3 font-serif text-3xl text-cream sm:text-4xl">
               {product.name}
             </h1>
-            <p className="mt-5 text-lg leading-relaxed text-bark">
+            <p className="mt-5 text-lg leading-relaxed text-oat">
               {product.desc}
             </p>
 
-            <div className="mt-8 rounded-3xl border border-bark/10 bg-linen p-6">
-              <p className="font-serif text-xl text-espresso">
+            <div className="mt-8 rounded-3xl border border-oat/10 bg-cocoa-light p-6">
+              <p className="font-serif text-xl text-cream">
                 Enquire for pricing &amp; availability
               </p>
-              <p className="mt-2 text-sm text-bark">
+              <p className="mt-2 text-sm text-oat">
                 Tell us your measurements and we&rsquo;ll confirm pricing,
                 sizing and lead time — or recommend a custom-made alternative.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <Link
                   href="/contacts"
-                  className="rounded-full bg-espresso px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-brass-dark"
+                  className="rounded-full bg-tomato px-6 py-3 text-sm font-semibold text-cocoa-deep transition-colors hover:bg-blush"
                 >
                   Enquire about this product
                 </Link>
                 <a
                   href={business.phoneHref}
-                  className="rounded-full border border-bark/20 px-6 py-3 text-sm font-semibold text-espresso transition-colors hover:border-brass"
+                  className="rounded-full border border-oat/20 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-tomato"
                 >
                   Call {business.phone}
                 </a>
@@ -106,7 +106,7 @@ export default async function ProductPage({
 
             <Link
               href="/shop"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brass-dark hover:text-espresso"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-tomato hover:text-cream"
             >
               <span aria-hidden>←</span> Back to shop
             </Link>
@@ -115,7 +115,7 @@ export default async function ProductPage({
 
         {related.length > 0 && (
           <div className="mx-auto mt-16 max-w-7xl px-6 sm:px-8">
-            <h2 className="font-serif text-2xl text-espresso">
+            <h2 className="font-serif text-2xl text-cream">
               Related products
             </h2>
             <div className="mt-6 grid gap-6 sm:grid-cols-3">
@@ -123,9 +123,9 @@ export default async function ProductPage({
                 <Link
                   key={p.slug}
                   href={`/product/${p.slug}`}
-                  className="group flex flex-col overflow-hidden rounded-3xl border border-bark/10 bg-linen transition-all hover:-translate-y-1 hover:shadow-lg"
+                  className="group flex flex-col overflow-hidden rounded-3xl border border-oat/10 bg-cocoa-light transition-all hover:-translate-y-1 hover:shadow-lg"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden bg-sand">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-cocoa-deep">
                     <ProductImage
                       src={shopPhoto(p.category)}
                       alt={p.name}
@@ -134,7 +134,7 @@ export default async function ProductPage({
                     />
                   </div>
                   <div className="p-5">
-                    <h3 className="font-serif text-base text-espresso group-hover:text-brass-dark">
+                    <h3 className="font-serif text-base text-cream group-hover:text-tomato">
                       {p.name}
                     </h3>
                   </div>

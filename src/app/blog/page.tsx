@@ -39,9 +39,9 @@ export default function BlogIndexPage() {
               <Reveal key={post.slug} delay={(i % 3) * 90}>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-bark/10 bg-linen transition-all hover:-translate-y-1 hover:shadow-[0_24px_50px_-20px_rgba(43,36,32,0.28)]"
+                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-oat/10 bg-cocoa-light transition-all hover:-translate-y-1 hover:shadow-[0_24px_50px_-20px_rgba(0,0,0,0.28)]"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden bg-sand">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-cocoa-deep">
                     <ProductImage
                       src={post.image}
                       alt={post.title}
@@ -49,23 +49,23 @@ export default function BlogIndexPage() {
                       priority={i === 0}
                       sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                     />
-                    <span className="absolute left-4 top-4 rounded-full bg-cream/90 px-3 py-1 text-xs font-medium text-bark">
+                    <span className="absolute left-4 top-4 rounded-full bg-cocoa/90 px-3 py-1 text-xs font-medium text-oat">
                       {post.category}
                     </span>
                   </div>
                   <div className="flex flex-1 flex-col p-6">
-                    <div className="flex items-center gap-2 text-xs text-stone">
+                    <div className="flex items-center gap-2 text-xs text-taupe">
                       <time dateTime={post.date}>{formatDate(post.date)}</time>
                       <span aria-hidden>·</span>
                       <span>{post.readMins} min read</span>
                     </div>
-                    <h2 className="mt-2 font-serif text-xl leading-snug text-espresso group-hover:text-brass-dark">
+                    <h2 className="mt-2 font-serif text-xl leading-snug text-cream group-hover:text-tomato">
                       {post.title}
                     </h2>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-bark">
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-oat">
                       {post.excerpt}
                     </p>
-                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brass-dark">
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-tomato">
                       Read article
                       <span className="transition-transform group-hover:translate-x-1">
                         →

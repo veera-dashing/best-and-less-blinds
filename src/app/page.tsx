@@ -16,17 +16,17 @@ export default function Home() {
       <Hero />
 
       {/* Welcome / intro */}
-      <section className="bg-linen py-20 lg:py-28">
+      <section className="bg-cocoa-light py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="grid items-center gap-14 lg:grid-cols-2">
             <Reveal>
-              <p className="eyebrow text-brass-dark">Welcome</p>
-              <h2 className="mt-3 font-serif text-4xl leading-tight text-espresso sm:text-5xl">
+              <p className="eyebrow text-tomato">Welcome</p>
+              <h2 className="mt-3 font-serif text-4xl leading-tight text-cream sm:text-5xl">
                 Quality blinds and shutters for your home, office or apartment
               </h2>
             </Reveal>
             <Reveal delay={120}>
-              <p className="text-lg leading-relaxed text-bark">
+              <p className="text-lg leading-relaxed text-oat">
                 We offer blind and shutter services for your home, office, shop,
                 and other residential and commercial premises — regardless of
                 where you are located. We are committed to providing you with
@@ -35,7 +35,7 @@ export default function Home() {
               </p>
               <Link
                 href="/about-us"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brass-dark hover:text-espresso"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-tomato hover:text-cream"
               >
                 More about us <span aria-hidden>→</span>
               </Link>
@@ -46,14 +46,14 @@ export default function Home() {
           <div className="mt-16 grid gap-6 md:grid-cols-3">
             {features.map((f, i) => (
               <Reveal key={f.title} delay={i * 120}>
-                <div className="group h-full rounded-3xl border border-bark/10 bg-cream p-8 transition-all hover:-translate-y-1 hover:shadow-[0_24px_50px_-20px_rgba(43,36,32,0.25)]">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-espresso font-serif text-lg text-brass-light">
+                <div className="group h-full rounded-3xl border border-oat/10 bg-cocoa p-8 transition-all hover:-translate-y-1 hover:shadow-[0_24px_50px_-20px_rgba(0,0,0,0.25)]">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cream font-serif text-lg text-tomato-dark">
                     0{i + 1}
                   </span>
-                  <h3 className="mt-5 font-serif text-2xl text-espresso">
+                  <h3 className="mt-5 font-serif text-2xl text-cream">
                     {f.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-bark">
+                  <p className="mt-3 text-sm leading-relaxed text-oat">
                     {f.description}
                   </p>
                 </div>
@@ -64,42 +64,42 @@ export default function Home() {
       </section>
 
       {/* Curtains spotlight — the current trend, given top billing */}
-      <section className="bg-espresso py-20 text-cream lg:py-28">
+      <section className="bg-cream py-20 text-cocoa lg:py-28">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <Reveal>
-              <div className="group relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-cream/10 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)]">
+              <div className="group relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-cocoa/10 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)]">
                 <ProductImage
                   src={photos.curtains}
                   alt="Made-to-measure curtains by Best & Less"
                   sizes="(min-width: 1024px) 50vw, 100vw"
                 />
-                <span className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-cream/95 px-3 py-1 text-xs font-semibold text-brass-dark shadow">
-                  <span className="h-1.5 w-1.5 rounded-full bg-brass" />
+                <span className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-cocoa/95 px-3 py-1 text-xs font-semibold text-tomato shadow">
+                  <span className="h-1.5 w-1.5 rounded-full bg-tomato" />
                   Trending now
                 </span>
               </div>
             </Reveal>
 
             <Reveal delay={120}>
-              <p className="eyebrow text-brass-light">In focus</p>
+              <p className="eyebrow text-tomato-dark">In focus</p>
               <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
                 Curtains, the season&rsquo;s favourite
               </h2>
-              <p className="mt-4 text-lg leading-relaxed text-cream/75">
+              <p className="mt-4 text-lg leading-relaxed text-cocoa/75">
                 Soft, light-filled and endlessly versatile — made-to-measure
                 curtains are the look everyone&rsquo;s asking for. From sheer
                 elegance to full block-out, we tailor every drape to your
                 windows and bring the samples to you.
               </p>
-              <ul className="mt-6 space-y-2.5 text-sm text-cream/80">
+              <ul className="mt-6 space-y-2.5 text-sm text-cocoa/80">
                 {[
                   "Sheer, block-out, S-fold & pinch-pleat",
                   "Layer sheers with block-out on a double track",
                   "Free in-home measure & quote, 7 days a week",
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brass/20 text-brass-light">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-tomato/20 text-tomato-dark">
                       <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none">
                         <path
                           d="M2.5 6.2 5 8.5l4.5-5"
@@ -117,13 +117,13 @@ export default function Home() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/curtains"
-                  className="rounded-full bg-brass px-7 py-3.5 text-sm font-semibold text-espresso transition-colors hover:bg-brass-light"
+                  className="rounded-full bg-tomato px-7 py-3.5 text-sm font-semibold text-cocoa-deep transition-colors hover:bg-blush"
                 >
                   Explore curtains
                 </Link>
                 <Link
                   href="/contacts"
-                  className="rounded-full border border-cream/25 px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:border-brass-light hover:text-brass-light"
+                  className="rounded-full border border-cocoa/25 px-7 py-3.5 text-sm font-semibold text-cocoa transition-colors hover:border-tomato-dark hover:text-tomato-dark"
                 >
                   Book a free measure
                 </Link>
@@ -137,11 +137,11 @@ export default function Home() {
       <section className="py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <Reveal className="max-w-2xl">
-            <p className="eyebrow text-brass-dark">Our Range</p>
-            <h2 className="mt-3 font-serif text-4xl leading-tight text-espresso sm:text-5xl">
+            <p className="eyebrow text-tomato">Our Range</p>
+            <h2 className="mt-3 font-serif text-4xl leading-tight text-cream sm:text-5xl">
               Crafted for every window, tailored to your space
             </h2>
-            <p className="mt-4 text-lg text-bark">
+            <p className="mt-4 text-lg text-oat">
               From flowing made-to-measure curtains to plantation shutters,
               motorised blinds and outdoor systems — all custom-made and
               professionally installed.
@@ -153,9 +153,9 @@ export default function Home() {
               <Reveal key={cat.slug} delay={(i % 3) * 120}>
                 <Link
                   href={`/our-services#${cat.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-bark/10 bg-linen transition-all hover:-translate-y-1 hover:shadow-[0_24px_50px_-20px_rgba(43,36,32,0.28)]"
+                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-oat/10 bg-cocoa-light transition-all hover:-translate-y-1 hover:shadow-[0_24px_50px_-20px_rgba(0,0,0,0.28)]"
                 >
-                  <div className="relative aspect-[5/3] overflow-hidden bg-sand">
+                  <div className="relative aspect-[5/3] overflow-hidden bg-cocoa-deep">
                     <ProductImage
                       src={cat.image}
                       alt={cat.title}
@@ -163,22 +163,22 @@ export default function Home() {
                       priority={i === 0}
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-espresso/10 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-cocoa-deep/30 to-transparent" />
                     {cat.slug === "curtains" && (
-                      <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-cream/95 px-3 py-1 text-xs font-semibold text-brass-dark shadow-sm">
-                        <span className="h-1.5 w-1.5 rounded-full bg-brass" />
+                      <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-cocoa/95 px-3 py-1 text-xs font-semibold text-tomato shadow-sm">
+                        <span className="h-1.5 w-1.5 rounded-full bg-tomato" />
                         Trending
                       </span>
                     )}
                   </div>
                   <div className="flex flex-1 flex-col p-6">
-                    <h3 className="font-serif text-2xl text-espresso group-hover:text-brass-dark">
+                    <h3 className="font-serif text-2xl text-cream group-hover:text-tomato">
                       {cat.title}
                     </h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-bark">
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-oat">
                       {cat.blurb}
                     </p>
-                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brass-dark">
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-tomato">
                       View {cat.title.toLowerCase()}
                       <span className="transition-transform group-hover:translate-x-1">
                         →
@@ -193,11 +193,11 @@ export default function Home() {
       </section>
 
       {/* Process band */}
-      <section className="bg-espresso py-20 text-cream lg:py-28">
+      <section className="bg-cream py-20 text-cocoa lg:py-28">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <Reveal className="max-w-2xl">
-            <p className="eyebrow text-brass-light">How it works</p>
-            <h2 className="mt-3 font-serif text-4xl leading-tight text-cream sm:text-5xl">
+            <p className="eyebrow text-tomato-dark">How it works</p>
+            <h2 className="mt-3 font-serif text-4xl leading-tight text-cocoa sm:text-5xl">
               Simple, honest and stress-free
             </h2>
           </Reveal>
@@ -218,11 +218,11 @@ export default function Home() {
             ].map((step, i) => (
               <Reveal key={step.t} delay={i * 130}>
                 <div className="relative pl-14">
-                  <span className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full border border-brass-light/40 font-serif text-brass-light">
+                  <span className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full border border-tomato-dark/40 font-serif text-tomato-dark">
                     {i + 1}
                   </span>
-                  <h3 className="font-serif text-2xl text-cream">{step.t}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-cream/70">
+                  <h3 className="font-serif text-2xl text-cocoa">{step.t}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-cocoa/70">
                     {step.d}
                   </p>
                 </div>
@@ -236,16 +236,16 @@ export default function Home() {
       <section className="py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <Reveal className="max-w-2xl">
-            <p className="eyebrow text-brass-dark">Kind Words</p>
-            <h2 className="mt-3 font-serif text-4xl leading-tight text-espresso sm:text-5xl">
+            <p className="eyebrow text-tomato">Kind Words</p>
+            <h2 className="mt-3 font-serif text-4xl leading-tight text-cream sm:text-5xl">
               Loved by customers across Sydney
             </h2>
           </Reveal>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {testimonials.map((t, i) => (
               <Reveal key={t.name} delay={i * 120}>
-                <figure className="flex h-full flex-col rounded-3xl border border-bark/10 bg-linen p-8">
-                  <div className="flex gap-1 text-brass">
+                <figure className="flex h-full flex-col rounded-3xl border border-oat/10 bg-cocoa-light p-8">
+                  <div className="flex gap-1 text-tomato">
                     {Array.from({ length: 5 }).map((_, s) => (
                       <svg
                         key={s}
@@ -257,10 +257,10 @@ export default function Home() {
                       </svg>
                     ))}
                   </div>
-                  <blockquote className="mt-4 flex-1 font-serif text-lg leading-relaxed text-espresso">
+                  <blockquote className="mt-4 flex-1 font-serif text-lg leading-relaxed text-cream">
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
-                  <figcaption className="mt-6 text-sm font-semibold text-bark">
+                  <figcaption className="mt-6 text-sm font-semibold text-oat">
                     — {t.name}
                   </figcaption>
                 </figure>

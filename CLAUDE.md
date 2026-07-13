@@ -21,7 +21,9 @@ while **preserving the old site's SEO** — it is an old, well-ranked domain.
 
 - Dev server: launch config `dev` in `.claude/launch.json` (`npm run dev`,
   Turbopack, `autoPort` — port 3000 is often in use so a random port is assigned).
-  Prefer the preview tools over `npm run dev` in Bash.
+  Prefer the preview tools over `npm run dev` in Bash. Next 16 needs **Node ≥ 20**
+  but the default shell resolves Node 18, so the launch config (and any Bash
+  build) must go through `nvm use 22` first.
 - Build: `npm run build` (production build is the source of truth — currently
   **54 static pages**, all SSG/static).
 
@@ -114,20 +116,36 @@ content.ts) and `serviceCategoryOrder` (services.ts) all put curtains first, plu
 a "Trending" nav pill, the curtains home card badge, and a dedicated curtains
 spotlight band on the homepage.
 
-## Design system
+## Design system — "Boldface" (dark editorial)
 
-Tokens in `globals.css` `@theme`: colours `cream / sand / linen`,
-`espresso / bark / stone`, `brass / brass-dark / brass-light`, `clay`. Use
-`font-serif` for headings, `font-sans` for body. Helpers: `.eyebrow` (thin
-uppercase label), `.slat-pattern` (blind-line texture), `Reveal` for scroll-in.
-**Header rule:** transparent over the light home hero, solid `bg-cream` on every
-other page (inner pages open with the dark `PageHeader` banner, so a transparent
-header would hide its dark logo/nav text).
+Palette adopted per client request from uiverse.io/design/systems/boldface: an
+editorial **dark-mode** system — deep cocoa stage, warm cream inset panels, one
+tomato accent reserved for actions. Tokens in `globals.css` `@theme`:
+
+- **Stage (dark bgs):** `cocoa` #22150f (page), `cocoa-deep` #1a0f0a (recessed
+  bands, photo overlays), `cocoa-light` #2e1c14 (raised cards/panels).
+- **Type & panels (light):** `cream` #f6ede2 (headlines + the cream inset panels:
+  `PageHeader`, `Footer`, homepage spotlight/process bands), `oat` #ddcbb8
+  (secondary text on cocoa), `taupe` #a89484 (muted).
+- **Accent:** `tomato` #ef5b35 (action buttons, accent text on cocoa),
+  `tomato-dark` #c2451f (accent text on cream panels — tomato itself fails AA
+  there), `blush` #f3c3b5 (soft accent, button hover).
+
+Rules: primary buttons are `bg-tomato text-cocoa-deep hover:bg-blush` (cream
+text on tomato fails AA contrast — don't use it). Gradients that sit **over
+photos** must stay dark (`from-cocoa-deep/...`) — photos don't invert with the
+theme. `.slat-pattern` draws with `currentColor` so it works on both cocoa and
+cream surfaces. Fonts unchanged: `font-serif` (Fraunces) headings, `font-sans`
+(Inter) body; helpers `.eyebrow`, `Reveal` as before.
+**Header rule:** transparent over the cocoa home hero (same surface), solid
+`bg-cocoa/95` everywhere else (inner pages open with the **cream** `PageHeader`
+panel, which would swallow the light nav text).
 
 **Logo:** the client's **original brand logo** (`public/images/logo.jpg` — orange
 "Best & Less" wordmark + slat mark on a white field). `Logo.tsx` renders it via
 `next/image` with `unoptimized` (it's already web-sized, and the dev optimizer
-choked on it). Footer uses its own cream text wordmark on the dark background.
+choked on it). Because the artwork sits on a white field, Header and Footer both
+wrap it in a deliberate white rounded chip against the dark surfaces.
 Don't replace the logo with a redrawn mark — the client asked to keep this one.
 
 ## Known gaps / before launch

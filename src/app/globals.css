@@ -2,22 +2,25 @@
 
 /* ----------------------------------------------------------------------------
    Best & Less Blinds — design tokens
-   Warm, premium interior palette: cream, espresso, brass accent.
+   "Boldface" palette (uiverse.io/design/systems/boldface): an editorial
+   dark-mode system — deep cocoa stage, warm cream inset panels, a single
+   tomato accent reserved for actions, blush for emphasis.
 ---------------------------------------------------------------------------- */
 @theme {
-  --color-cream: #f7f3ec;
-  --color-sand: #efe7da;
-  --color-linen: #faf7f1;
+  /* stage (backgrounds, dark) */
+  --color-cocoa: #22150f; /* page stage */
+  --color-cocoa-deep: #1a0f0a; /* recessed bands */
+  --color-cocoa-light: #2e1c14; /* raised cards / panels */
 
-  --color-espresso: #2b2420;
-  --color-bark: #4a3f37;
-  --color-stone: #8a7d70;
+  /* type & inset panels (light) */
+  --color-cream: #f6ede2; /* headlines, cream inset panels */
+  --color-oat: #ddcbb8; /* secondary text on cocoa */
+  --color-taupe: #a89484; /* muted text */
 
-  --color-brass: #b08442;
-  --color-brass-dark: #8f6a31;
-  --color-brass-light: #d9b676;
-
-  --color-clay: #c08457;
+  /* accent */
+  --color-tomato: #ef5b35; /* actions & accent text on cocoa */
+  --color-tomato-dark: #c2451f; /* accent text on cream panels */
+  --color-blush: #f3c3b5; /* serif-italic emphasis, soft accent */
 
   --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -26,12 +29,13 @@
 }
 
 :root {
-  --background: var(--color-cream);
-  --foreground: var(--color-espresso);
+  --background: var(--color-cocoa);
+  --foreground: var(--color-cream);
+  color-scheme: dark;
 }
 
 * {
-  border-color: color-mix(in srgb, var(--color-bark) 12%, transparent);
+  border-color: color-mix(in srgb, var(--color-oat) 14%, transparent);
 }
 
 html {
@@ -47,8 +51,8 @@ body {
 }
 
 ::selection {
-  background: var(--color-brass);
-  color: #fff;
+  background: var(--color-tomato);
+  color: var(--color-cocoa-deep);
 }
 
 /* Utility: thin uppercase label */
@@ -59,14 +63,15 @@ body {
   font-weight: 600;
 }
 
-/* Decorative slat / blind line pattern used in hero & section art */
+/* Decorative slat / blind line pattern used in hero & section art.
+   Uses currentColor so it reads on both the cocoa stage and cream panels. */
 .slat-pattern {
   background-image: repeating-linear-gradient(
     180deg,
     transparent 0px,
     transparent 14px,
-    color-mix(in srgb, var(--color-espresso) 7%, transparent) 14px,
-    color-mix(in srgb, var(--color-espresso) 7%, transparent) 17px
+    color-mix(in srgb, currentColor 8%, transparent) 14px,
+    color-mix(in srgb, currentColor 8%, transparent) 17px
   );
 }
 

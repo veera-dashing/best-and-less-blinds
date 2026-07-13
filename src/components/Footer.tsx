@@ -25,26 +25,26 @@ function SocialIcon({ name }: { name: "facebook" | "youtube" | "maps" }) {
 
 export function Footer() {
   return (
-    <footer className="bg-espresso text-cream/80">
+    <footer className="bg-cream text-cocoa/80">
       {/* CTA band */}
-      <div className="border-b border-cream/10">
+      <div className="border-b border-cocoa/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 py-14 text-center sm:px-8 md:flex-row md:justify-between md:text-left">
           <div>
-            <p className="eyebrow text-brass-light">Free Measure & Quote</p>
-            <h2 className="mt-2 font-serif text-3xl text-cream md:text-4xl">
+            <p className="eyebrow text-tomato-dark">Free Measure & Quote</p>
+            <h2 className="mt-2 font-serif text-3xl text-cocoa md:text-4xl">
               Ready to dress your windows?
             </h2>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
               href={business.phoneHref}
-              className="rounded-full border border-cream/25 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-brass-light hover:text-brass-light"
+              className="rounded-full border border-cocoa/25 px-6 py-3 text-sm font-semibold text-cocoa transition-colors hover:border-tomato-dark hover:text-tomato-dark"
             >
               {business.phone}
             </a>
             <Link
               href="/contacts"
-              className="rounded-full bg-brass px-6 py-3 text-sm font-semibold text-espresso transition-colors hover:bg-brass-light"
+              className="rounded-full bg-tomato px-6 py-3 text-sm font-semibold text-cocoa-deep transition-colors hover:bg-blush"
             >
               Book a Consultation
             </Link>
@@ -62,7 +62,7 @@ export function Footer() {
           >
             <Logo className="!h-10" />
           </Link>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/60">
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-cocoa/60">
             Custom-made, affordable quality blinds, plantation shutters and
             curtains for homes, offices and apartments.
           </p>
@@ -72,7 +72,7 @@ export function Footer() {
               aria-label="Facebook"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-cream/15 transition-colors hover:border-brass-light hover:text-brass-light"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-cocoa/15 transition-colors hover:border-tomato-dark hover:text-tomato-dark"
             >
               <SocialIcon name="facebook" />
             </a>
@@ -81,7 +81,7 @@ export function Footer() {
               aria-label="YouTube"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-cream/15 transition-colors hover:border-brass-light hover:text-brass-light"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-cocoa/15 transition-colors hover:border-tomato-dark hover:text-tomato-dark"
             >
               <SocialIcon name="youtube" />
             </a>
@@ -90,7 +90,7 @@ export function Footer() {
               aria-label="Google Maps"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-cream/15 transition-colors hover:border-brass-light hover:text-brass-light"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-cocoa/15 transition-colors hover:border-tomato-dark hover:text-tomato-dark"
             >
               <SocialIcon name="maps" />
             </a>
@@ -98,13 +98,13 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="eyebrow text-cream/50">Explore</h3>
+          <h3 className="eyebrow text-cocoa/50">Explore</h3>
           <ul className="mt-4 space-y-2.5 text-sm">
             {nav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="transition-colors hover:text-brass-light"
+                  className="transition-colors hover:text-tomato-dark"
                 >
                   {item.label}
                 </Link>
@@ -114,13 +114,13 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="eyebrow text-cream/50">Products</h3>
+          <h3 className="eyebrow text-cocoa/50">Products</h3>
           <ul className="mt-4 space-y-2.5 text-sm">
             {productCategories.map((cat) => (
               <li key={cat.slug}>
                 <Link
                   href={`/our-services#${cat.slug}`}
-                  className="transition-colors hover:text-brass-light"
+                  className="transition-colors hover:text-tomato-dark"
                 >
                   {cat.title}
                 </Link>
@@ -130,13 +130,13 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="eyebrow text-cream/50">Get in touch</h3>
-          <ul className="mt-4 space-y-3 text-sm text-cream/70">
+          <h3 className="eyebrow text-cocoa/50">Get in touch</h3>
+          <ul className="mt-4 space-y-3 text-sm text-cocoa/70">
             <li>{business.address}</li>
             <li>
               <a
                 href={business.phoneHref}
-                className="transition-colors hover:text-brass-light"
+                className="transition-colors hover:text-tomato-dark"
               >
                 {business.phone}
               </a>
@@ -144,21 +144,21 @@ export function Footer() {
             <li>
               <a
                 href={`mailto:${business.email}`}
-                className="transition-colors hover:text-brass-light"
+                className="transition-colors hover:text-tomato-dark"
               >
                 {business.email}
               </a>
             </li>
           </ul>
-          <ul className="mt-5 space-y-1.5 text-xs text-cream/50">
+          <ul className="mt-5 space-y-1.5 text-xs text-cocoa/50">
             <li>{business.availability}</li>
             <li>{business.showroom}</li>
           </ul>
         </div>
       </div>
 
-      <div className="border-t border-cream/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-6 text-xs text-cream/45 sm:flex-row sm:px-8">
+      <div className="border-t border-cocoa/10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-6 text-xs text-cocoa/45 sm:flex-row sm:px-8">
           <p>
             {business.name} © 2026. All Rights Reserved.
           </p>

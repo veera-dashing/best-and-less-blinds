@@ -24,13 +24,13 @@ export default function ServicesPage() {
       />
 
       {/* quick nav */}
-      <section className="sticky top-[68px] z-30 border-b border-bark/10 bg-cream/90 backdrop-blur-md">
+      <section className="sticky top-[68px] z-30 border-b border-oat/10 bg-cocoa/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-6 py-3 sm:px-8">
           {productCategories.map((cat) => (
             <a
               key={cat.slug}
               href={`#${cat.slug}`}
-              className="whitespace-nowrap rounded-full border border-bark/15 px-4 py-1.5 text-sm font-medium text-bark transition-colors hover:border-brass hover:text-brass-dark"
+              className="whitespace-nowrap rounded-full border border-oat/15 px-4 py-1.5 text-sm font-medium text-oat transition-colors hover:border-tomato hover:text-tomato"
             >
               {cat.title}
             </a>
@@ -53,28 +53,28 @@ export default function ServicesPage() {
                   }`}
                 >
                   <Reveal>
-                    <div className="group relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-bark/10 bg-sand shadow-[0_30px_60px_-30px_rgba(43,36,32,0.4)]">
+                    <div className="group relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-oat/10 bg-cocoa-deep shadow-[0_30px_60px_-30px_rgba(0,0,0,0.4)]">
                       <ProductImage
                         src={cat.image}
                         alt={`${cat.title} by Best & Less Blinds`}
                         artSlug={cat.slug}
                         sizes="(min-width: 1024px) 50vw, 100vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-espresso/10 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-cocoa-deep/30 to-transparent" />
                     </div>
                   </Reveal>
 
                   <Reveal delay={120}>
-                    <p className="eyebrow text-brass-dark">0{i + 1} — Range</p>
-                    <h2 className="mt-3 font-serif text-4xl leading-tight text-espresso sm:text-5xl">
+                    <p className="eyebrow text-tomato">0{i + 1} — Range</p>
+                    <h2 className="mt-3 font-serif text-4xl leading-tight text-cream sm:text-5xl">
                       {cat.title}
                     </h2>
-                    <p className="mt-4 text-lg leading-relaxed text-bark">
+                    <p className="mt-4 text-lg leading-relaxed text-oat">
                       {cat.blurb}
                     </p>
                     <Link
                       href="/contacts"
-                      className="mt-7 inline-flex items-center gap-2 rounded-full bg-espresso px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-brass-dark"
+                      className="mt-7 inline-flex items-center gap-2 rounded-full bg-tomato px-6 py-3 text-sm font-semibold text-cocoa-deep transition-colors hover:bg-blush"
                     >
                       Enquire about {cat.title.toLowerCase()}
                       <span aria-hidden>→</span>
@@ -88,15 +88,15 @@ export default function ServicesPage() {
                     <Reveal key={item.slug} delay={(j % 3) * 90}>
                       <Link
                         href={`/services/${item.slug}`}
-                        className="group flex h-full flex-col rounded-3xl border border-bark/10 bg-linen p-6 transition-all hover:-translate-y-1 hover:shadow-[0_24px_50px_-20px_rgba(43,36,32,0.25)]"
+                        className="group flex h-full flex-col rounded-3xl border border-oat/10 bg-cocoa-light p-6 transition-all hover:-translate-y-1 hover:shadow-[0_24px_50px_-20px_rgba(0,0,0,0.25)]"
                       >
-                        <h3 className="font-serif text-xl text-espresso group-hover:text-brass-dark">
+                        <h3 className="font-serif text-xl text-cream group-hover:text-tomato">
                           {item.title}
                         </h3>
-                        <p className="mt-2 flex-1 text-sm leading-relaxed text-bark">
+                        <p className="mt-2 flex-1 text-sm leading-relaxed text-oat">
                           {item.lead}
                         </p>
-                        <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brass-dark">
+                        <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-tomato">
                           View details
                           <span className="transition-transform group-hover:translate-x-1">
                             →
@@ -113,21 +113,21 @@ export default function ServicesPage() {
       </div>
 
       {/* free consultation band */}
-      <section className="bg-espresso py-16 text-cream lg:py-20">
+      <section className="bg-cream py-16 text-cocoa lg:py-20">
         <div className="mx-auto max-w-3xl px-6 text-center sm:px-8">
           <h2 className="font-serif text-3xl sm:text-4xl">
             We offer a free consultation
           </h2>
-          <p className="mt-4 text-cream/70">
+          <p className="mt-4 text-cocoa/70">
             {business.availability}. Call us today on{" "}
-            <a href={business.phoneHref} className="text-brass-light">
+            <a href={business.phoneHref} className="text-tomato-dark">
               {business.phone}
             </a>{" "}
             or send us a quick enquiry.
           </p>
           <Link
             href="/contacts"
-            className="mt-7 inline-block rounded-full bg-brass px-7 py-3.5 text-sm font-semibold text-espresso transition-colors hover:bg-brass-light"
+            className="mt-7 inline-block rounded-full bg-tomato px-7 py-3.5 text-sm font-semibold text-cocoa-deep transition-colors hover:bg-blush"
           >
             Request a free quote
           </Link>

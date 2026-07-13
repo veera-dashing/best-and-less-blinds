@@ -101,7 +101,7 @@ export default async function ServicePage({
           <div>
             <div className="space-y-5">
               {service.body.map((para, i) => (
-                <p key={i} className="text-lg leading-relaxed text-bark">
+                <p key={i} className="text-lg leading-relaxed text-oat">
                   {para}
                 </p>
               ))}
@@ -109,16 +109,16 @@ export default async function ServicePage({
 
             {service.specs && (
               <div className="mt-10">
-                <h2 className="font-serif text-2xl text-espresso">
+                <h2 className="font-serif text-2xl text-cream">
                   At a glance
                 </h2>
                 <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
                   {service.specs.map((spec) => (
                     <li
                       key={spec}
-                      className="flex items-start gap-3 rounded-xl border border-bark/10 bg-linen px-4 py-3 text-sm text-espresso"
+                      className="flex items-start gap-3 rounded-xl border border-oat/10 bg-cocoa-light px-4 py-3 text-sm text-cream"
                     >
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brass/15 text-brass-dark">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-tomato/15 text-tomato">
                         <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none">
                           <path
                             d="M2.5 6.2 5 8.5l4.5-5"
@@ -139,7 +139,7 @@ export default async function ServicePage({
 
           {/* Sidebar */}
           <aside className="lg:sticky lg:top-28">
-            <div className="group overflow-hidden rounded-[2rem] border border-bark/10 bg-sand shadow-[0_30px_60px_-30px_rgba(43,36,32,0.4)]">
+            <div className="group overflow-hidden rounded-[2rem] border border-oat/10 bg-cocoa-deep shadow-[0_30px_60px_-30px_rgba(0,0,0,0.4)]">
               <div className="relative aspect-[4/3]">
                 <ProductImage
                   src={service.image}
@@ -151,22 +151,22 @@ export default async function ServicePage({
               </div>
             </div>
 
-            <div className="mt-6 rounded-3xl bg-espresso p-7 text-cream">
+            <div className="mt-6 rounded-3xl bg-cream p-7 text-cocoa">
               <h2 className="font-serif text-2xl">Free measure &amp; quote</h2>
-              <p className="mt-2 text-sm text-cream/70">
+              <p className="mt-2 text-sm text-cocoa/70">
                 {business.availability}. Tell us about your windows and
                 we&rsquo;ll bring the samples to you.
               </p>
               <div className="mt-5 flex flex-col gap-3">
                 <Link
                   href="/contacts"
-                  className="rounded-full bg-brass px-6 py-3 text-center text-sm font-semibold text-espresso transition-colors hover:bg-brass-light"
+                  className="rounded-full bg-tomato px-6 py-3 text-center text-sm font-semibold text-cocoa-deep transition-colors hover:bg-blush"
                 >
                   Request a quote
                 </Link>
                 <a
                   href={business.phoneHref}
-                  className="rounded-full border border-cream/25 px-6 py-3 text-center text-sm font-semibold text-cream transition-colors hover:border-brass-light hover:text-brass-light"
+                  className="rounded-full border border-cocoa/25 px-6 py-3 text-center text-sm font-semibold text-cocoa transition-colors hover:border-tomato-dark hover:text-tomato-dark"
                 >
                   Call {business.phone}
                 </a>
@@ -178,7 +178,7 @@ export default async function ServicePage({
         {/* Related services */}
         {related.length > 0 && (
           <div className="mx-auto mt-16 max-w-7xl px-6 sm:px-8">
-            <h2 className="font-serif text-2xl text-espresso">
+            <h2 className="font-serif text-2xl text-cream">
               More {categoryLabels[service.category].toLowerCase()}
             </h2>
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -186,15 +186,15 @@ export default async function ServicePage({
                 <Link
                   key={s.slug}
                   href={`/services/${s.slug}`}
-                  className="group rounded-3xl border border-bark/10 bg-linen p-6 transition-all hover:-translate-y-1 hover:shadow-lg"
+                  className="group rounded-3xl border border-oat/10 bg-cocoa-light p-6 transition-all hover:-translate-y-1 hover:shadow-lg"
                 >
-                  <h3 className="font-serif text-lg text-espresso group-hover:text-brass-dark">
+                  <h3 className="font-serif text-lg text-cream group-hover:text-tomato">
                     {s.title}
                   </h3>
-                  <p className="mt-2 line-clamp-2 text-sm text-bark">
+                  <p className="mt-2 line-clamp-2 text-sm text-oat">
                     {s.lead}
                   </p>
-                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brass-dark">
+                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-tomato">
                     Learn more
                     <span className="transition-transform group-hover:translate-x-1">
                       →

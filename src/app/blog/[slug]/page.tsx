@@ -90,13 +90,13 @@ export default async function BlogPostPage({
 
       <article className="py-16 lg:py-24">
         <div className="mx-auto max-w-3xl px-6 sm:px-8">
-          <div className="flex items-center gap-2 text-sm text-stone">
+          <div className="flex items-center gap-2 text-sm text-taupe">
             <time dateTime={post.date}>{formatDate(post.date)}</time>
             <span aria-hidden>·</span>
             <span>{post.readMins} min read</span>
           </div>
 
-          <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-[2rem] border border-bark/10 bg-sand">
+          <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-[2rem] border border-oat/10 bg-cocoa-deep">
             <ProductImage
               src={post.image}
               alt={post.title}
@@ -110,13 +110,13 @@ export default async function BlogPostPage({
             {post.sections.map((section, i) => (
               <section key={i}>
                 {section.heading && (
-                  <h2 className="font-serif text-2xl text-espresso">
+                  <h2 className="font-serif text-2xl text-cream">
                     {section.heading}
                   </h2>
                 )}
                 <div className={section.heading ? "mt-3 space-y-4" : "space-y-4"}>
                   {section.paras.map((para, j) => (
-                    <p key={j} className="text-lg leading-relaxed text-bark">
+                    <p key={j} className="text-lg leading-relaxed text-oat">
                       {para}
                     </p>
                   ))}
@@ -126,21 +126,21 @@ export default async function BlogPostPage({
           </div>
 
           {/* CTA */}
-          <div className="mt-12 rounded-3xl bg-espresso p-8 text-center text-cream">
+          <div className="mt-12 rounded-3xl bg-cream p-8 text-center text-cocoa">
             <h2 className="font-serif text-2xl">Ready for a free measure & quote?</h2>
-            <p className="mx-auto mt-2 max-w-md text-sm text-cream/70">
+            <p className="mx-auto mt-2 max-w-md text-sm text-cocoa/70">
               {business.availability}. We&rsquo;ll bring the samples to you.
             </p>
             <div className="mt-5 flex flex-wrap justify-center gap-3">
               <Link
                 href="/contacts"
-                className="rounded-full bg-brass px-6 py-3 text-sm font-semibold text-espresso transition-colors hover:bg-brass-light"
+                className="rounded-full bg-tomato px-6 py-3 text-sm font-semibold text-cocoa-deep transition-colors hover:bg-blush"
               >
                 Book a consultation
               </Link>
               <a
                 href={business.phoneHref}
-                className="rounded-full border border-cream/25 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-brass-light hover:text-brass-light"
+                className="rounded-full border border-cocoa/25 px-6 py-3 text-sm font-semibold text-cocoa transition-colors hover:border-tomato-dark hover:text-tomato-dark"
               >
                 Call {business.phone}
               </a>
@@ -149,7 +149,7 @@ export default async function BlogPostPage({
 
           <Link
             href="/blog"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brass-dark hover:text-espresso"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-tomato hover:text-cream"
           >
             <span aria-hidden>←</span> All articles
           </Link>
@@ -157,15 +157,15 @@ export default async function BlogPostPage({
 
         {/* More articles */}
         <div className="mx-auto mt-16 max-w-7xl px-6 sm:px-8">
-          <h2 className="font-serif text-2xl text-espresso">More articles</h2>
+          <h2 className="font-serif text-2xl text-cream">More articles</h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-3">
             {more.map((p) => (
               <Link
                 key={p.slug}
                 href={`/blog/${p.slug}`}
-                className="group flex flex-col overflow-hidden rounded-3xl border border-bark/10 bg-linen transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group flex flex-col overflow-hidden rounded-3xl border border-oat/10 bg-cocoa-light transition-all hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="relative aspect-[16/10] overflow-hidden bg-sand">
+                <div className="relative aspect-[16/10] overflow-hidden bg-cocoa-deep">
                   <ProductImage
                     src={p.image}
                     alt={p.title}
@@ -174,7 +174,7 @@ export default async function BlogPostPage({
                   />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-serif text-base leading-snug text-espresso group-hover:text-brass-dark">
+                  <h3 className="font-serif text-base leading-snug text-cream group-hover:text-tomato">
                     {p.title}
                   </h3>
                 </div>
