@@ -34,6 +34,28 @@
   color-scheme: dark;
 }
 
+/* ----------------------------------------------------------------------------
+   Light theme — the "Boldface" palette inverted.
+   The whole site is painted with literal-colour tokens (cocoa/cream/oat…),
+   so we flip the light/dark POLES here and every `bg-cocoa`, `text-cream`, …
+   utility follows automatically. Three tokens stay fixed on purpose:
+   • cocoa-deep — the dark anchor: keeps `text-cocoa-deep` (labels on tomato
+     buttons) readable and keeps the dark photo overlays (`from-cocoa-deep/*`)
+     dark, since photos don't invert with the theme.
+   • tomato / blush — the brand accent, identical in both themes.
+   tomato-dark is the one exception: its only home is the (now dark) cream
+   inset panels, so it brightens to full tomato to stay legible there.
+---------------------------------------------------------------------------- */
+:root[data-theme="light"] {
+  --color-cocoa: #f4ece1; /* page stage → warm paper */
+  --color-cocoa-light: #fffdf9; /* raised cards / panels → near-white */
+  --color-cream: #241610; /* headlines + inverted inset panels → deep cocoa */
+  --color-oat: #5c4a3d; /* secondary text + hairline borders → warm brown */
+  --color-taupe: #857263; /* muted text */
+  --color-tomato-dark: #ef5b35; /* accent text on the now-dark inset panels */
+  color-scheme: light;
+}
+
 * {
   border-color: color-mix(in srgb, var(--color-oat) 14%, transparent);
 }

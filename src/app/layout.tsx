@@ -91,7 +91,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-AU" className={`${fraunces.variable} ${inter.variable}`}>
+    <html
+      lang="en-AU"
+      className={`${fraunces.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        {/* Apply the saved theme before first paint to avoid a flash of the
+            wrong theme. Defaults to the site's native dark ("Boldface"). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col">
         <script
           type="application/ld+json"

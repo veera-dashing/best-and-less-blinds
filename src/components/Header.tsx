@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { business, nav, productCategories } from "@/lib/content";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
   const pathname = usePathname();
@@ -106,7 +107,7 @@ export function Header() {
                         <Link
                           key={cat.slug}
                           href={`/our-services#${cat.slug}`}
-                          className="group rounded-2xl p-4 transition-colors hover:bg-cocoa-deep"
+                          className="group rounded-2xl p-4 transition-colors hover:bg-oat/10"
                         >
                           <span className="block font-serif text-lg text-cream group-hover:text-tomato">
                             {cat.title}
@@ -145,6 +146,7 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <ThemeToggle />
           <a
             href={business.phoneHref}
             className="text-sm font-medium text-oat transition-colors hover:text-tomato"
@@ -159,31 +161,34 @@ export function Header() {
           </Link>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-full text-cream lg:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-        >
-          <div className="space-y-1.5">
-            <span
-              className={`block h-0.5 w-6 bg-current transition-transform ${
-                mobileOpen ? "translate-y-2 rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-6 bg-current transition-opacity ${
-                mobileOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-6 bg-current transition-transform ${
-                mobileOpen ? "-translate-y-2 -rotate-45" : ""
-              }`}
-            />
-          </div>
-        </button>
+        {/* Mobile toggles */}
+        <div className="flex items-center gap-1 lg:hidden">
+          <ThemeToggle />
+          <button
+            onClick={() => setMobileOpen((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center rounded-full text-cream"
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+          >
+            <div className="space-y-1.5">
+              <span
+                className={`block h-0.5 w-6 bg-current transition-transform ${
+                  mobileOpen ? "translate-y-2 rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-6 bg-current transition-opacity ${
+                  mobileOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-6 bg-current transition-transform ${
+                  mobileOpen ? "-translate-y-2 -rotate-45" : ""
+                }`}
+              />
+            </div>
+          </button>
+        </div>
       </div>
 
       {/* Mobile drawer */}
@@ -197,7 +202,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="flex items-center rounded-xl px-4 py-3 text-base font-medium text-oat transition-colors hover:bg-cocoa-deep"
+              className="flex items-center rounded-xl px-4 py-3 text-base font-medium text-oat transition-colors hover:bg-oat/10"
             >
               {item.label}
               {item.label === "Curtains" && (

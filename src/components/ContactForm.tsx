@@ -149,7 +149,7 @@ export function ContactForm() {
       </div>
 
       {status === "error" && (
-        <p className="rounded-xl border border-blush/30 bg-blush/10 px-4 py-3 text-sm text-blush">
+        <p className="rounded-xl border border-tomato/40 bg-tomato/10 px-4 py-3 text-sm text-cream">
           {errorMsg}{" "}
           <a href={business.phoneHref} className="font-semibold underline">
             Call {business.phone}
